@@ -1,0 +1,39 @@
+# Next.js
+.next/
+out/
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+
+# Build
+dist/
+build/
+
+# Python (if Django backend)
+__pycache__/
+*.pyc
+.venv/
+
+pages/
+app/
+componsents/
+public/
+styles/
+package.json
+package-lock.json
+next.config.js
+tsconfig.json
+
+.next/
+node_modules/
+.env
+dist/
+build/
