@@ -1,3 +1,6 @@
+# VS Code settings
+.vscode/
+
 # Next.js
 .next/
 out/

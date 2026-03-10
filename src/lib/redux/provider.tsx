@@ -8,7 +8,7 @@ interface ProviderProps {
 }
 
 export default function ReduxProvider({ children }: ProviderProps) {
-	const storeRef = useRef<AppStore>();
+	const storeRef = useRef<AppStore | undefined>(undefined);
 	if (!storeRef.current) {
 		storeRef.current = makeStore();
 	}
