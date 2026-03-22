@@ -19,13 +19,11 @@ const ClientOnly = dynamic<{ children: React.ReactNode }>(
 );
 
 interface UpdateParamsProps {
-	params: {
-		id: string;
-	};
+	id: string;
 }
 
-export default function UpdateIssueForm({ params }: UpdateParamsProps) {
-	const issueId = params.id;
+export default function UpdateIssueForm({ id }: UpdateParamsProps) {
+	const issueId = id;
 	const [updateIssue, { isLoading }] = useUpdateIssueMutation();
 	const router = useRouter();
 

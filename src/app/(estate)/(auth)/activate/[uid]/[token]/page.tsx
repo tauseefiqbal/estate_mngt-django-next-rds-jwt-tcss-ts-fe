@@ -2,25 +2,25 @@
 
 import { useActivateUserMutation } from "@/lib/redux/features/auth/authApiSlice";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { toast } from "react-toastify";
 
 interface ActivationProps {
-	params: {
+	params: Promise<{
 		uid: string;
 		token: string;
-	};
+	}>;
 }
 
 export default function ActivationPage({ params }: ActivationProps) {
+	const { uid, token } = use(params);
 	const router = useRouter();
 	const [activateUser, { isLoading, isSuccess, isError, error }] =
 		useActivateUserMutation();
 
 	useEffect(() => {
-		const { uid, token } = params;
 		activateUser({ uid, token });
-	}, [activateUser, params]);
+	}, [activateUser, uid, token]);
 
 	useEffect(() => {
 		if (isSuccess) {

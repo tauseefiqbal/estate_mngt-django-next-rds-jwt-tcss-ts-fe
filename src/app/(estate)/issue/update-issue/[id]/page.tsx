@@ -10,12 +10,13 @@ export const metadata: Metadata = {
 };
 
 interface UpdateParamsProps {
-	params: {
+	params: Promise<{
 		id: string;
-	};
+	}>;
 }
 
-export default function UpdateIssuePage({ params }: UpdateParamsProps) {
+export default async function UpdateIssuePage({ params }: UpdateParamsProps) {
+	const { id } = await params;
 	return (
 		<div>
 			<AuthFormHeader
@@ -26,7 +27,7 @@ export default function UpdateIssuePage({ params }: UpdateParamsProps) {
 			/>
 			<div className="mt-7 sm:mx-auto sm:w-full sm:max-w-[480px]">
 				<div className="bg-lightGrey dark:bg-deepBlueGrey rounded-xl px-6 py-12 shadow sm:rounded-lg sm:px-12 md:rounded-3xl">
-					<UpdateIssueForm params={params} />
+					<UpdateIssueForm id={id} />
 				</div>
 			</div>
 		</div>

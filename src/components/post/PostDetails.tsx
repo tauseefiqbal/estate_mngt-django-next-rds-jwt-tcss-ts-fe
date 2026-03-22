@@ -20,13 +20,10 @@ import RepliesList from "./RepliesList";
 import CreateReplyForm from "../forms/add-reply/CreateReplyForm";
 
 interface PostDetailsProps {
-	params: {
-		slug: string;
-	};
+	slug: string;
 }
 
-function PostDetailsContent({ params }: PostDetailsProps) {
-	const slug = params.slug;
+function PostDetailsContent({ slug }: PostDetailsProps) {
 	const { data } = useGetSinglePostQuery(slug);
 	const post = data?.post;
 
@@ -108,10 +105,10 @@ function PostDetailsContent({ params }: PostDetailsProps) {
 	);
 }
 
-export default function PostDetails({ params }: PostDetailsProps) {
+export default function PostDetails({ slug }: PostDetailsProps) {
 	return (
 		<ProtectedRoute>
-			<PostDetailsContent params={params} />
+			<PostDetailsContent slug={slug} />
 		</ProtectedRoute>
 	);
 }

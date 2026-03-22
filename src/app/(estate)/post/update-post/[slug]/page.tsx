@@ -3,12 +3,13 @@ import UpdatePostForm from "@/components/forms/update-post/UpdatePostForm";
 import React from "react";
 
 interface UpdateParamsProps {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 }
 
-export default function UpdatePostPage({ params }: UpdateParamsProps) {
+export default async function UpdatePostPage({ params }: UpdateParamsProps) {
+	const { slug } = await params;
 	return (
 		<div>
 			<AuthFormHeader
@@ -19,7 +20,7 @@ export default function UpdatePostPage({ params }: UpdateParamsProps) {
 			/>
 			<div className="mt-7 sm:mx-auto sm:w-full sm:max-w-[480px]">
 				<div className="bg-lightGrey dark:bg-deepBlueGrey rounded-xl px-6 py-12 shadow sm:rounded-lg sm:px-12 md:rounded-3xl">
-					<UpdatePostForm params={params} />
+					<UpdatePostForm slug={slug} />
 				</div>
 			</div>
 		</div>

@@ -16,13 +16,11 @@ import { Button } from "../ui/button";
 import { EyeIcon, MessageSquareQuoteIcon } from "lucide-react";
 
 interface SlugParamsProps {
-	params: {
-		tagSlug: string;
-	};
+	tagSlug: string;
 }
 
-export default function PostTagCard({ params }: SlugParamsProps) {
-	const { data, isLoading } = useGetPostsByTagQuery(params.tagSlug);
+export default function PostTagCard({ tagSlug }: SlugParamsProps) {
+	const { data, isLoading } = useGetPostsByTagQuery(tagSlug);
 	if (isLoading) {
 		return (
 			<div className="flex-center pt-32">
@@ -38,7 +36,7 @@ export default function PostTagCard({ params }: SlugParamsProps) {
 			<h1 className="flex-center font-robotoSlab dark:text-pumpkin text-4xl">
 				Posts tagged with{" "}
 				<span className="text-electricIndigo ml-1 dark:text-lime-500">
-					&ldquo;{params.tagSlug}&rdquo;
+					&ldquo;{tagSlug}&rdquo;
 				</span>
 			</h1>
 			<div className="mt-6 grid grid-cols-2 gap-6">

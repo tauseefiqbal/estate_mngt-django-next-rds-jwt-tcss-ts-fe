@@ -23,13 +23,10 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 
 interface IssueDetailsProps {
-	params: {
-		id: string;
-	};
+	id: string;
 }
 
-export default function IssueDetails({ params }: IssueDetailsProps) {
-	const id = params.id;
+export default function IssueDetails({ id }: IssueDetailsProps) {
 	const { data } = useGetSingleIssueQuery(id);
 	const issue = data?.issue;
 	const router = useRouter();

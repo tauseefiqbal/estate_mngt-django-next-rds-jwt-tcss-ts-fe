@@ -18,13 +18,11 @@ import { Button } from "@/components/ui/button";
 import Spinner from "@/components/shared/Spinner";
 
 interface UpdateParamsProps {
-	params: {
-		slug: string;
-	};
+	slug: string;
 }
 
-export default function UpdatePostForm({ params }: UpdateParamsProps) {
-	const postSlug = params.slug;
+export default function UpdatePostForm({ slug }: UpdateParamsProps) {
+	const postSlug = slug;
 	const { data } = useGetSinglePostQuery(postSlug);
 	const post = data?.post;
 	const [updatePost, { isLoading }] = useUpdatePostMutation();

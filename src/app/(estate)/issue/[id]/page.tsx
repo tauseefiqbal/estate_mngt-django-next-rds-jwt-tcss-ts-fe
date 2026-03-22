@@ -8,15 +8,16 @@ export const metadata: Metadata = {
 };
 
 interface ParamsProps {
-	params: {
+	params: Promise<{
 		id: string;
-	};
+	}>;
 }
 
-export default function IssueDetailPage({ params }: ParamsProps) {
+export default async function IssueDetailPage({ params }: ParamsProps) {
+	const { id } = await params;
 	return (
 		<div>
-			<IssueDetails params={params} />
+			<IssueDetails id={id} />
 		</div>
 	);
 }

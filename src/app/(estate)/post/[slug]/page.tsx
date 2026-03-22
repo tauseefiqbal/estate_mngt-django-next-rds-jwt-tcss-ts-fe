@@ -7,15 +7,16 @@ export const metadata: Metadata = {
 };
 
 interface ParamsProps {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 }
 
-export default function PostDetailPage({ params }: ParamsProps) {
+export default async function PostDetailPage({ params }: ParamsProps) {
+	const { slug } = await params;
 	return (
 		<>
-			<PostDetails params={params} />
+			<PostDetails slug={slug} />
 		</>
 	);
 }
