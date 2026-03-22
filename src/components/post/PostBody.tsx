@@ -14,7 +14,7 @@ export default function PostBody({ body, slug }: PostBodyProps) {
 	const { data: currentUser } = useGetUserProfileQuery();
 	const { data } = useGetSinglePostQuery(slug || "");
 	const canUpdate =
-		data?.post.author_username === currentUser?.profile.username;
+		data?.post?.author_username === currentUser?.profile?.username;
 	return (
 		<CardContent className="border-b-eerieBlack dark:border-gray border-b border-dashed">
 			<CardDescription className="mt-3">
