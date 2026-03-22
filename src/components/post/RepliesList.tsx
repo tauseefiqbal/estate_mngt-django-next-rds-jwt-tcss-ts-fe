@@ -10,6 +10,11 @@ interface ReplyProps {
 
 export default function RepliesList({ reply }: ReplyProps) {
 	const { theme } = useTheme();
+
+	if (!reply) {
+		return null;
+	}
+
 	return (
 		<div className="flex items-center space-x-3">
 			<Avatar>
