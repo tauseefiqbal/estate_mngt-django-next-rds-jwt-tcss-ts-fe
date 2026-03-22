@@ -20,7 +20,7 @@ interface ReplyFormProps {
 export default function CreateReplyForm({ slug }: ReplyFormProps) {
 	const [replyToPost, { isLoading }] = useReplyToPostMutation();
 	const { data } = useGetSinglePostQuery(slug || "");
-	const postId = data?.post.id;
+	const postId = data?.post?.id;
 	const router = useRouter();
 
 	const {
